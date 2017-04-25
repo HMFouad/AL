@@ -1,0 +1,39 @@
+package Iterator;
+
+/*
+ * 
+ * Author: HMFouad
+ * 
+ * 		2017
+ */
+
+public class NameRespository implements Container {
+	public String names[]= {"Fouad", "Oussama", "Robert", "John"};
+
+	@Override
+	public Iterator getIterator() {
+		return new NameIterator();
+	}
+
+	private class NameIterator implements Iterator{
+		int index;
+		
+		@Override
+		public boolean hasnext() {
+			if (index < names.length){
+				return true;
+			}
+			return false;
+		}
+
+		@Override
+		public Object next() {
+			if (this.hasnext()){
+				return names[index++];
+			}
+			return null;
+		}
+
+	}
+
+}
